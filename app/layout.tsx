@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
-import Navbar from './components/navbar'
+import { Navigation } from "./components/navbar";
 import Footer from './components/footer'
 import ToastContext from './context/toast-context'
 import ActiveSectionContextProvider from './context/section-context'
+import { ThemeProvider } from "./components/theme";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,8 +15,8 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'Alex Ross',
-  description: 'Portfolio website for Alex Ross.',
+  title: 'Katalin Groe',
+  description: 'Portfolio website for Katalin Groe.',
 }
 
 export default function RootLayout({
@@ -32,12 +33,14 @@ export default function RootLayout({
         className={` ${outfit.className} min-h-screen text-gray-50 flex flex-col items-center justify-center w-full`}
       >
         <ActiveSectionContextProvider>
-          <Navbar />
+        <ThemeProvider>
+          <Navigation />
           <ToastContext />
           <main className="w-full max-w-[1000px] px-4 mt-40 mb-40 flex flex-col gap-32">
             {children}
           </main>
           <Footer />
+          </ThemeProvider>
         </ActiveSectionContextProvider>
       </body>
     </html>

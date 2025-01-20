@@ -38,13 +38,13 @@ export default function Intro() {
           Welcome! I&apos;m
         </h1>
         <h1 className="md:text-7xl text-5xl font-bold sm:mb-4 mb-1 flex items-end">
-          Alex Ross{' '}
+          Katalin Groe{' '}
           <span className="flex items-center gap-2 ml-4 -translate-y-1.5">
             {renderedSocials}
           </span>
         </h1>
         <h2 className="lg:text-3xl text-2xl font-semibold text-white/50 mb-8">
-          Software Engineering @ <span className="text-sjsu-gold">SJSU</span>
+          Research Assistant 2 at <span className="text-sjsu-gold">CAMH</span>
         </h2>
       </motion.div>
       <motion.p
@@ -54,9 +54,7 @@ export default function Intro() {
         viewport={{ once: true }}
         className="text-gray-400 text-lg mb-8 lg:w-[50%] md:w-[65%]"
       >
-        I&apos;m currently a software engineering student at San Jose State
-        University with experience in designing and building full-stack
-        applications using modern technologies.
+        I&apos;m currently a Research Assistant 2 at CAMH.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, x: -25 }}
@@ -65,7 +63,7 @@ export default function Intro() {
         viewport={{ once: true }}
       >
         <Button
-          href="/Alex_Ross_Resume.pdf"
+          href="/Katalin Groe Resume.pdf"
           className="md:text-lg group"
         >
           Resume

@@ -1,11 +1,10 @@
-import Header from './ui/header'
-import profilePic from '@/public/profile-pic.jpeg'
-import { interests } from '../lib/data'
-import Image from 'next/image'
-import Link from 'next/link'
-import IconCard from './ui/icon-card'
-import { useSectionInView } from '../lib/hooks'
-import { motion } from 'framer-motion'
+import Header from '../components/ui/header';
+import { interests } from '../lib/data';
+import Image from 'next/image';
+import Link from 'next/link';
+import IconCard from '../components/ui/icon-card';
+import { useSectionInView } from '../lib/hooks';
+import { motion } from 'framer-motion';
 
 export default function About() {
   const { ref } = useSectionInView('About', 0.5)
@@ -39,40 +38,37 @@ export default function About() {
           viewport={{ once: true }}
           className="text-gray-400 text-lg"
         >
-          Hello! My name is Alex and I love designing and building applications
-          that solve real-world problems, which is on display in my{' '}
+          Hi! I'm Katalin Groe, currently working as a Research Assistant 2 at the  
           <Link
-            href="/#projects"
+            href="https://bbp.lab.utoronto.ca"
             className="hover:text-sjsu-gold transition-colors font-semibold"
-          >
-            projects{' '}
-          </Link>
-          and{' '}
-          <Link
-            href="/#experience"
-            className="hover:text-sjsu-gold transition-colors font-semibold"
-          >
-            {' '}
-            work experience
-          </Link>
-          .
-          <br />
-          <br />
-          I specialize in full-stack application development and deliver machine
-          learning solutions while continuously learning and new and emerging
-          technologies.
-          <br />
-          <br />
-          Currently, I am working as a Software Engineer at{' '}
-          <Link
-            href={'https://cinefind.app/'}
             target="_blank"
-            className="hover:text-sjsu-gold transition-colors font-semibold"
           >
-            Cinefind
-          </Link>{' '}
-          connecting audiences across the country with free local movie
-          screenings.
+            Brain, Body, and Perception lab 
+          </Link>
+           at CAMH. I also volunteer at the 
+          <Link
+            href="https://nefros.net"
+            className="hover:text-sjsu-gold transition-colors font-semibold"
+            target="_blank"
+          >
+            University Health Network
+          </Link>
+           under the supervision of Dr. István Mucsi. 
+          <br/>
+          <br/>
+          I received my Bachelor of Science degree in Psychology and Health Sciences 
+          from the University of Toronto, and am passionate about advancing our understanding 
+          of mental health disorders in order to support clinical outcomes. You can download my resume 
+          <Link
+            href="../public/Katalin Groe Resume.pdf"
+            download="Katalin Groe Resume.pdf"
+          >
+           here
+          </Link>
+          <br/>
+          <br/>
+          In my spare time I enjoy reading fantasy novels, hiking, dancing, and playing the guitar.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, x: 25 }}
@@ -82,8 +78,8 @@ export default function About() {
           className="justify-center items-center p-4 lg:flex hidden"
         >
           <Image
-            src={profilePic}
-            alt="Alex Ross"
+            src="../public/KatalinGroe.png"
+            alt="Katalin Groe"
             className="rounded-xl shadow-xl shadow-slate-900 lg:h-72 h-56 w-auto brightness-90"
           />
         </motion.div>
