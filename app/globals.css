@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-gradient {
+  background: rgb(15, 23, 42);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(0, 33, 64, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(0, 33, 64, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(0, 33, 64, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0f172a",endColorstr="#002140",GradientType=1);
+}
+
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
