@@ -1,48 +1,87 @@
-import type { Metadata } from 'next'
-import { Inter, Outfit } from 'next/font/google'
-import './globals.css'
-import { Navigation } from "./components/navbar";
-import Footer from './components/footer'
-import ToastContext from './context/toast-context'
-import ActiveSectionContextProvider from './context/section-context'
+import "../global.css";
+import { Inter } from "@next/font/google";
+import LocalFont from "@next/font/local";
+import { Metadata } from "next";
+import { Background } from "./components/background";
+import { Navigation } from "./components/nav";
+import { Provider } from "@/components/ui/provider"
 import { ThemeProvider } from "./components/theme";
 
-const inter = Inter({ subsets: ['latin'] })
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-})
-
 export const metadata: Metadata = {
-  title: 'Katalin Groe',
-  description: 'Portfolio website for Katalin Groe.',
-}
+  title: {
+        default: "Katalin Groe",
+        template: "%s | Katalin Groe"
+  },
+  description: "Research Assistant 2 at CAMH",
+  openGraph: {
+    title: "Katalin Groe",
+    description:
+      "Research Assistant 2 at CAMH",
+      url: "https://katalin-groe.vercel.app/",
+    siteName: "Katalin Groe",
+    locale: "en-US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    title: "Katalin Groe",
+    card: "summary_large_image",
+  },
+  icons: {
+    shortcut: "/K.png",
+  },
+};
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const calSans = LocalFont({
+  src: "../public/fonts/CalSans-SemiBold.ttf",
+  variable: "--font-calsans",
+});
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: {
+  children: React.ReactNode;
+}) {
+
   return (
-    <html
-      lang="en"
-      className="bg-gradient !bg-slate-900 scroll-smooth"
-    >
-      <body
-        className={` ${outfit.className} min-h-screen text-gray-50 flex flex-col items-center justify-center w-full`}
-      >
-        <ActiveSectionContextProvider>
-        <ThemeProvider>
-          <Navigation />
-          <ToastContext />
-          <main className="w-full max-w-[1000px] px-4 mt-40 mb-40 flex flex-col gap-32">
-            {children}
-          </main>
-          <Footer />
-          </ThemeProvider>
-        </ActiveSectionContextProvider>
-      </body>
+    <html lang="en" className={[inter.variable, calSans.variable].join(" ")} suppressHydrationWarning style={{height:"100%"}}>
+        <head>
+        <script src="https://kit.fontawesome.com/600e3d2b49.js" crossOrigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+          <Analytics />
+        </head>
+        <body
+          className={`bg-pink ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+            }`}
+          style={{ height: "100%", overflowY: "auto", overflowX: "clip", msOverflowStyle: "none",
+            scrollbarWidth: "none"}}
+        >
+          <Provider>
+            <ThemeProvider>
+            <Navigation />
+              <Background particles={true}>
+                <div className="main" style={{flexGrow: 1, /*marginLeft: "10%", marginRight: "10%", */ width: "100%"}}>
+                  {children}
+                </div>
+              </Background>
+            </ThemeProvider>
+          </Provider>
+        </body>
     </html>
-  )
+  );
 }

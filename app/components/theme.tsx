@@ -15,29 +15,21 @@ type Theme = {
 // themes supported by app
 export const modes : Theme[] = [
   {
-    name: "dark",
-    bg: "bg-gradient-to-tl from-black via-zinc-600/20 to-black",
-    text: "text-white",
-    navbar: "grey",
-    subText: "grey",
+    name: "pink",
+    bg: "bg-gradient-to-r from-fuchsia-500 to-fuchsia-800",
+    text: "text-zinc-300",
+    subText: " text-black ",
+    navbar: "text-black",
     subHover: "white"
   },
 {
   name: "blue",
-  bg: "bg-gradient-to-r from-blue-400 to-indigo-500",
+  bg: "bg-gradient-to-r from-sky-600 to-gray-700",
   text: "text-black",
   navbar: "text-black",
   subText: "text-black",
   subHover: "white"
-},
-{
-    name: "pink",
-    bg: "bg-gradient-to-r from-fuchsia-400 to-fuchsia-700",
-    text: "text-black",
-    navbar: "text-black",
-    subText: "text-black",
-    subHover: "white"
-  }
+}
 ];
 
 const ThemeContext = createContext<any>(null);
