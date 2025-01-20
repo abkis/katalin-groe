@@ -35,8 +35,8 @@ export const modes : Theme[] = [
 const ThemeContext = createContext<any>(null);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState(modes[0]); // default is dark mode
-
+  const [theme, setTheme] = useState(modes[0]); // default is pink
+  
   // set specific things in global css so don't need to import theme each time
   useEffect(() => {
     // Update CSS variables based on the theme

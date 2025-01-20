@@ -1,7 +1,7 @@
 // define and export components used for basic layout ex. background, etc
 "use client";
 import React from "react";
-import { useTheme } from './theme';
+import { useTheme } from "./theme";
 import Particles from "./particles";
 
 export const  Background = ({particles, children} : {particles : Boolean, children: React.ReactNode}) => {
