@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
 import {modes, useTheme} from "./theme";
-import "../global.css"; 
+import "../../global.css"; 
 import { useRouter } from "next/router";
 import { Button } from '@chakra-ui/react';
 
