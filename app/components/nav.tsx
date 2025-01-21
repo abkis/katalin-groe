@@ -11,7 +11,7 @@ import { Button } from '@chakra-ui/react';
 export const nav = [
     { name: "About", href: "/about" },
     {name: "Research", href: "/research"},
-	{name: "Education", href:"/education"},
+	{name: "Experience", href:"/experience"},
     { name: "Contact", href: "/contact" }
 ];
 

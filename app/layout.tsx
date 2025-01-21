@@ -6,6 +6,7 @@ import { Navigation } from "./components/nav";
 import { Provider } from "./components/ui/provider";
 import { ThemeProvider } from "./components/theme";
 import { Background } from "./components/background";
+import Footer from "./components/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -78,6 +79,7 @@ export default function RootLayout({
                   {children}
                 </div>
               </Background>
+              <Footer />
             </ThemeProvider>
           </Provider>
         </body>
