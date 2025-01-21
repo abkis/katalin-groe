@@ -4,23 +4,12 @@ import {
     FaPlaneDeparture,
     FaEnvelope,
     FaBookOpen,
-  } from 'react-icons/fa6'
-  import boxd from '@/public/boxd.png'
-  import atcq from '@/public/atcq.png'
+  } from 'react-icons/fa6';
   
   export const interests = [
     {
       name: 'Fitness',
       icon: FaDumbbell,
-    },
-    {
-      name: 'Movies',
-      image: boxd,
-      href: 'https://letterboxd.com/aross2010/',
-    },
-    {
-      name: 'Music',
-      image: atcq,
     },
     {
       name: 'Reading',
