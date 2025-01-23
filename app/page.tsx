@@ -22,16 +22,8 @@ export default function Intro() {
   })
 
   return (
-    <section
-      id="home"
-      className="scroll-mt-24 mb-24"
-    >
-      <motion.div
-        initial={{ opacity: 0, x: -25 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 0.5 }}
-        viewport={{ once: true }}
-      >
+    <>
+      <div>
         <h1 className="md:text-2xl text-xl sm:mb-6 mb-3 font-light tracking-wider text-gray-400">
           Welcome! I&apos;m
         </h1>
@@ -44,14 +36,8 @@ export default function Intro() {
         <h2 className="lg:text-3xl text-2xl font-semibold text-white/50 mb-8">
           Research Assistant 2 at <a href="https://github.com/aross2010/web-portfolio" target="_blank" className="text-sjsu-gold">CAMH</a>
         </h2>
-      </motion.div>
-      <motion.p
-        initial={{ opacity: 0, x: -25 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 0.75 }}
-        viewport={{ once: true }}
-        className="text-gray-400 text-lg mb-8 lg:w-[50%] md:w-[65%]"
-      >
+      </div>
+      <p>
         I'm currently working as a Research Assistant 2 at the  
           <Link
             href="https://bbp.lab.utoronto.ca"
@@ -61,13 +47,8 @@ export default function Intro() {
             Brain, Body, and Perception lab 
           </Link>
           I'm passionate about everything!! Yay.
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0, x: -25 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 1 }}
-        viewport={{ once: true }}
-      >
+      </p>
+      <div>
         <Button
           href="/Katalin Groe CV.pdf"
           className="md:text-lg group"
@@ -75,7 +56,7 @@ export default function Intro() {
           CV
           <RiDownloadLine className="transition-transform group-hover:translate-y-1" />
         </Button>
-      </motion.div>
-    </section>
+      </div>
+    </>
   )
 }

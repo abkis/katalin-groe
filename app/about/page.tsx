@@ -9,32 +9,17 @@ export default function About() {
 
   const renderedInterests = interests.map((interest, i) => {
     return (
-      <motion.li
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: i * 0.05 + 0.5 }}
-        viewport={{ once: true }}
-        key={interest.name}
-      >
+      <li>
         <IconCard {...interest} />
-      </motion.li>
+      </li>
     )
   })
 
   return (
-    <div
-      id="about"
-      className="scroll-mt-24"
-    >
+    <div>
       <Header>About Me</Header>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-12 mb-8">
-        <motion.p
-          initial={{ opacity: 0, x: -25 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="text-gray-400 text-lg"
-        >
+        <p>
           Hi! I'm Katalin Groe, currently working as a Research Assistant 2 at the  
           <Link
             href="https://bbp.lab.utoronto.ca"
@@ -66,30 +51,18 @@ export default function About() {
           <br/>
           <br/>
           In my spare time I enjoy reading fantasy novels, hiking, dancing, and playing the guitar.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, x: 25 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="justify-center items-center p-4 lg:flex hidden"
-        >
+        </p>
+        <div>
           <Image
             src="../public/KatalinGroe.png"
             alt="Katalin Groe"
             className="rounded-xl shadow-xl shadow-slate-900 lg:h-72 h-56 w-auto brightness-90"
           />
-        </motion.div>
+        </div>
       </div>
-      <motion.h2
-        initial={{ opacity: 0, x: -25 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4, delay: 0.5 }}
-        viewport={{ once: true }}
-        className="text-2xl font-semibold tracking-wider text-gray-400 mb-4"
-      >
+      <h2>
         Interests
-      </motion.h2>
+      </h2>
       <ul className="grid lg:grid-cols-8 grid-cols-4 gap-2">
         {renderedInterests}
       </ul>

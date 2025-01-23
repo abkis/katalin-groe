@@ -67,35 +67,16 @@ export default function Timeline({ data }: TimelineProps) {
                         ]
                   }
                 >
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                    }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    viewport={{ once: true }}
-                    className="sm:h-20 sm:w-20 w-16 h-16 shadow-lg shadow-slate-800 absolute lg:left-1/2 transform lg:-translate-x-1/2 flex items-center justify-center p-2 border-2 border-sjsu-gold rounded-full"
-                  >
+                  <div>
                     <Image
                       src={image ? image : imageSrc ? imageSrc : ""}
                       alt={subtitle}
                       className="object-cover rounded-full object-center"
                     />
-                  </motion.div>
+                  </div>
                 </ArcherElement>
 
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: i % 2 == 0 ? -25 : 25,
-                  }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.25 }}
-                  viewport={{ once: true }}
-                  className={`p-4 relative bg-slate-700 rounded-lg lg:flex hidden flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-slate-800 sm:ml-32 ml-20 ${
-                    i % 2 == 0 ? 'lg:ml-12' : 'lg:mr-12 lg:ml-auto'
-                  } `}
-                >
+                <div>
                   {componentContent}
 
                   <BsFillCaretLeftFill
@@ -105,24 +86,13 @@ export default function Timeline({ data }: TimelineProps) {
                         : 'right-0 translate-x-1/2 rotate-180'
                     }`}
                   />
-                </motion.div>
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: 25,
-                  }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className={`p-4 relative bg-slate-700 rounded-lg lg:hidden flex flex-col lg:max-w-[340px] sm:max-w-[70%] shadow-md shadow-slate-800 sm:ml-32 ml-20 ${
-                    i % 2 == 0 ? 'lg:ml-12' : 'lg:mr-12 lg:ml-auto'
-                  } `}
-                >
+                </div>
+                <div>
                   {componentContent}
                   <BsFillCaretLeftFill
                     className={`text-slate-700 absolute top-0 mt-4 transform  h-10 w-10 left-0 -translate-x-1/2`}
                   />
-                </motion.div>
+                </div>
               </li>
             )
           }

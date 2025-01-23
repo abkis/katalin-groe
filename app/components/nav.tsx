@@ -17,13 +17,11 @@ export const nav = [
 
 
 export const Navigation: React.FC = () => {
-	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 	const [homeButton, setHomeButton] = useState(false);
 	const pathname = usePathname();
 	const [currentModeIndex, setCurrentModeIndex] = useState(0);
 	const {theme, setTheme} = useTheme();
-	const router = useRouter();
 
 	// toggle display mode 
 	const toggleMode = () => {
@@ -38,18 +36,8 @@ export const Navigation: React.FC = () => {
 	  	setHomeButton(pathname !== '/');
 	}, [pathname]);
 
-	useEffect(() => {
-		if (!ref.current) return;
-		const observer = new IntersectionObserver(([entry]) =>
-			setIntersecting(entry.isIntersecting),
-		);
-
-		observer.observe(ref.current);
-		return () => observer.disconnect();
-	}, []);
-
 	return (
-		<header ref={ref}>
+		<header>
 			<div
 				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b  ${
 					isIntersecting
@@ -65,7 +53,7 @@ export const Navigation: React.FC = () => {
 							key={item.href}
 							href={item.href}
 							className = {`navLink ${
-								router.pathname === item.href ? "active" : ""
+								pathname === item.href ? "active" : ""
 							  }`}
 							>
 							{item.name}

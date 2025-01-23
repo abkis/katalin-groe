@@ -8,7 +8,7 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 
-export default function Experience() {
+export default async function Experience() {
     const key ="experience";
 
     let experience: TimelineElement[] = [];
