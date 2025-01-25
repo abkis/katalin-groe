@@ -10,7 +10,9 @@ type Theme = {
   navbar: string;
   subText: string;
   subHover: string;
-  a: string;
+  link: string;
+  linkHover: string;
+  iconColor: string;
 };
 
 // themes supported by app
@@ -22,7 +24,9 @@ export const modes : Theme[] = [
     navbar: "black",
     subText: "black",
     subHover: "white",
-    a: "#5A2A83"
+    link: "#5A2A83",
+    linkHover: "#8626a6",
+    iconColor: "#472563"
   },
 {
   name: "blue",
@@ -31,7 +35,9 @@ export const modes : Theme[] = [
   navbar: "text-black",
   subText: "text-black",
   subHover: "white",
-  a: "#00FFFF"
+  link: "#00FFFF",
+  linkHover: "#469999",
+  iconColor: "#00FFFF"
 },
   {
     name: "sunset",
@@ -40,7 +46,9 @@ export const modes : Theme[] = [
     subText: " text-black",
     navbar: "text-black",
     subHover: "white",
-    a: "#568203"
+    link: "#568203",
+    linkHover: "#6aeb2f",
+    iconColor: "#3c7d10"
   }
 ];
 
@@ -57,6 +65,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.documentElement.style.setProperty('--sub-text-color', theme.subText);
     document.documentElement.style.setProperty('--hover-color', theme.subHover);
     document.documentElement.style.setProperty('--navbar-text-color', theme.navbar);
+    document.documentElement.style.setProperty('--link-color', theme.link);
+    document.documentElement.style.setProperty('--link-hover-color', theme.linkHover);
+    document.documentElement.style.setProperty('--icon-color', theme.iconColor);
+
   }, [theme]);
 
   return (

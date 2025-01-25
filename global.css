@@ -38,4 +38,16 @@
   .navbar-text:hover{
     color: var(--hover-color, "text-zinc-300");
   }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+  }
+  
 }
+

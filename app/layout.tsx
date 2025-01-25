@@ -1,13 +1,17 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
+import { Inter, Outfit } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import { ThemeProvider } from "./components/theme";
+import { Navigation } from "./components/nav";
+import { Background } from "./components/background";
+import { Provider } from "./components/ui/provider";
 
 export const metadata: Metadata = {
   title: {
-    default: "katalin Groe",
-    template: "%s | katalin Groe",
+    default: "Katalin Groe",
+    template: "%s | Katalin Groe",
   },
   description: "Research Assistant 2 at CAMH",
   openGraph: {
@@ -44,6 +48,11 @@ const calSans = LocalFont({
   variable: "--font-calsans",
 });
 
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+})
+
 export default function RootLayout({
   children,
 }: {
@@ -55,11 +64,21 @@ export default function RootLayout({
         <Analytics />
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          }`}
-      >
-        {children}
-      </body>
+          className={` ${outfit.className} min-h-screen text-gray-50 flex flex-col items-center justify-center w-full`}
+          style={{ height: "100%", overflowY: "auto", overflowX: "clip", msOverflowStyle: "none",
+            scrollbarWidth: "none"}}
+        >
+          <Provider>
+            <ThemeProvider>
+            <Navigation />
+              <Background particles={true}>
+                <div className="main" style={{flexGrow: 1, width: "100%"}}>
+                  {children}
+                </div>
+              </Background>
+            </ThemeProvider>
+          </Provider>
+        </body>
     </html>
   );
 }

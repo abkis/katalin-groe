@@ -8,6 +8,7 @@ type IconCardProps = {
   image?: StaticImageData | null
   icon?: IconType | null
   href?: string
+  style?: React.CSSProperties
 }
 
 export default function IconCard({
@@ -15,6 +16,7 @@ export default function IconCard({
   icon: Icon,
   image,
   href,
+  style
 }: IconCardProps) {
   const cardContent = (
     <Fragment>
@@ -23,9 +25,10 @@ export default function IconCard({
           src={image}
           alt={name}
           className="h-10 w-auto"
+          style={style} 
         />
       ) : (
-        Icon && <Icon className="h-10 w-auto text-sjsu-gold" />
+        Icon && <Icon className="h-10 w-auto text-sjsu-gold"  style={style} />
       )}
 
       <p className="text-white/50 rounded-lg font-medium text-center text-sm">
