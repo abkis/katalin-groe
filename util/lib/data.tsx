@@ -6,6 +6,19 @@ import {
     FaBookOpen,
   } from 'react-icons/fa6';
   
+  export const socials = [
+    {
+      name: 'LinkedIn',
+      icon: FaLinkedin,
+      href: 'https://www.linkedin.com/in/katalin-groe',
+    },
+    {
+      name: 'Email',
+      icon: FaEnvelope,
+      href: 'mailto:@katalin-groe@gmail.com',
+    },
+  ] as const
+  
   export const interests = [
     {
       name: 'Fitness',
@@ -21,18 +34,3 @@ import {
      },
   ] as const
   
-
-  export const socials = [
-    {
-      name: 'LinkedIn',
-      icon: FaLinkedin,
-      href: 'https://www.linkedin.com/in/katalin-groe',
-      handle: "Katalin Groe"
-    },
-    {
-      name: 'Email',
-      icon: FaEnvelope,
-      href: 'mailto:@katalin.groe@camh.ca',
-      handle: "kis.6@osu.edu"
-    },
-  ] as const

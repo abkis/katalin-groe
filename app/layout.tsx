@@ -1,25 +1,21 @@
 import "../global.css";
-import { Inter } from "next/font/google";
-import LocalFont from "next/font/local";
+import { Inter } from "@next/font/google";
+import LocalFont from "@next/font/local";
 import { Metadata } from "next";
-import { Navigation } from "./components/nav";
-import { Provider } from "./components/ui/provider";
-import { ThemeProvider } from "./components/theme";
-import { Background } from "./components/background";
-import Footer from "./components/footer";
+import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
-        default: "Katalin Groe",
-        template: "%s | Katalin Groe"
+    default: "katalin Groe",
+    template: "%s | katalin Groe",
   },
   description: "Research Assistant 2 at CAMH",
   openGraph: {
     title: "Katalin Groe",
     description:
       "Research Assistant 2 at CAMH",
-      url: "https://katalin-groe.vercel.app/",
-    siteName: "Katalin Groe",
+    url: "katalin-groe.vercel.app",
+    siteName: "katalin-groe.vercel.app",
     locale: "en-US",
     type: "website",
   },
@@ -34,15 +30,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    title: "Katalin Groe",
-    card: "summary_large_image",
-  },
   icons: {
-    shortcut: "/K.png",
+    shortcut: "/images/K.png",
   },
 };
-
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -58,31 +49,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")} suppressHydrationWarning style={{height:"100%"}}>
-        <head>
-        <script src="https://kit.fontawesome.com/600e3d2b49.js" crossOrigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-        </head>
-        <body
-          className={`bg-pink ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-            }`}
-          style={{ height: "100%", overflowY: "auto", overflowX: "clip", msOverflowStyle: "none",
-            scrollbarWidth: "none"}}
-        >
-          <Provider>
-            <ThemeProvider>
-            <Navigation />
-              <Background particles={true}>
-                <div className="main" style={{flexGrow: 1, /*marginLeft: "10%", marginRight: "10%", */ width: "100%"}}>
-                  {children}
-                </div>
-              </Background>
-              <Footer />
-            </ThemeProvider>
-          </Provider>
-        </body>
+    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+      <head>
+        <Analytics />
+      </head>
+      <body
+        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+          }`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

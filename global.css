@@ -1,24 +1,41 @@
-/* Navbar.module.css */
-.navbar {
-    display: flex;
-    gap: 20px;
-    background-color: #333;
-    padding: 10px 20px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Hide scrollbar for Chrome, Safari, and Edge */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* IE and Edge scrollbar hiding */
+  body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
   }
   
-  .navLink {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
+  html {
+    overflow: -moz-scrollbars-none; /* Firefox */
+    overflow: hidden; /* Hide scrollbars */
   }
-  
-  .navLink:hover {
-    color: #ff9800;
+
+  .main-text{
+    color: var(--text-color, "white");
   }
-  
-  .active {
-    font-weight: bold;
-    color: #ff9800;
-    border-bottom: 2px solid #ff9800;
+
+  .sub-text{
+    color: var(--sub-text-color, "text-zinc-500");
   }
-  
+
+  .navbar-text{
+    color: var(--navbar-text-color, "text-zinc-500");
+  }
+
+  .navbar-text:hover{
+    color: var(--hover-color, "text-zinc-300");
+  }
+}
