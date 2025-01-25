@@ -54,20 +54,20 @@ export default function Home() {
             </span>
           </h1>
           <h2 className="text-2xl lg:text-3xl font-semibold text-gray-800 mb-6">
-            Research Assistant 2 at <Link
+            Research Assistant 2 at <a
               href="https://bbp.lab.utoronto.ca"
-              className="hover:text-sjsu-gold transition-colors font-semibold"
               target="_blank"
+              style={{color: "#5A2A83"}}
             >
-              Brain, Body, and Perception lab
-            </Link>
-            at <span className="text-sjsu-gold">CAMH</span>
+              Brain, Body, and Perception lab 
+            </a>
+            &nbsp;at <span className="text-sjsu-gold">CAMH</span>
           </h2>
           <p className="text-gray-800 text-lg mb-6">
             I&apos;m currently a Research Assistant 2 at CAMH. I&apos;m interested in everything!
           </p>
           <Button
-            href="/public/files/Katalin Groe CV.pdf"
+            href="/files/Katalin Groe CV.pdf"
             className="md:text-lg group"
           >
             Resume
@@ -78,11 +78,11 @@ export default function Home() {
         {/* Right Column */}
         <div className="relative w-full lg:h-auto aspect-square lg:aspect-auto">
           <Image
-            src="/images/KatalinGroe.png"
+            src="/images/KatalinGroe.jpg"
             alt="Katalin Groe"
             className="rounded-xl shadow-xl shadow-slate-900 brightness-90"
             fill
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "revert-layer"}}
           />
         </div>
       </div>

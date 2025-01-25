@@ -1,11 +1,41 @@
 "use client";
-import { ArrowLeft } from "lucide-react";
+import { Home } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from 'next/navigation';
+import { Button } from "@chakra-ui/react";
+import {modes, useTheme} from "./theme";
+
+export const nav = [
+    { name: "About", href: "/about" },
+    {name: "Research", href: "/research"},
+    { name: "Contact", href: "/contact" }
+];
+
 
 export const Navigation: React.FC = () => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
+	const [homeButton, setHomeButton] = useState(false);
+	const pathname = usePathname();
+	const [currentModeIndex, setCurrentModeIndex] = useState(0);
+	const {theme, setTheme} = useTheme();
+
+	// toggle display mode 
+	const toggleMode = () => {
+		setCurrentModeIndex((prevIndex) => {
+		  const newIndex = (prevIndex + 1) % modes.length;
+		  setTheme(modes[newIndex]);  // current theme always one index behind
+		  return newIndex;
+		});
+	};
+  
+	const buttonMode = modes[(currentModeIndex + 1) % modes.length];
+
+	// display home button only if on non-home page
+	useEffect(() => {
+	  	setHomeButton(pathname !== '/');
+	}, [pathname]);
 
 	useEffect(() => {
 		if (!ref.current) return;
@@ -25,29 +55,35 @@ export const Navigation: React.FC = () => {
 						? "bg-zinc-900/0 border-transparent"
 						: "bg-zinc-900/500  border-zinc-800 "
 				}`}
+				style={{height: "5rcm"}}
 			>
 				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-					<div className="flex justify-between gap-8">
-						<Link
-							href="/research"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Research
-						</Link>
-						<Link
-							href="/contact"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Contact
-						</Link>
+					<div className="flex justify-between items-center gap-8">
+						{nav.map((item) => (
+							<Link
+							key={item.href}
+							href={item.href}
+							className = "text-sm duration-500 text-[var(--navbar-text-color)] hover:text-[var(--hover-color)]"
+							>
+							{item.name}
+							</Link>
+						))}
+						<Button
+							onClick={toggleMode}
+							className={buttonMode.bg.concat("rounded-full text-white focus:outline-none transform transition-transform duration-300 hover:scale-110 active:scale-90")}
+							style={{ width: '30px', height: '30px' }}
+							/>
 					</div>
-
-					<Link
-						href="/"
-						className="duration-200 text-zinc-300 hover:text-zinc-100"
-					>
-						<ArrowLeft className="w-6 h-6 " />
-					</Link>
+					{
+						homeButton?
+						<Link
+							href="/"
+							className="duration-200 text-zinc-300 hover:text-zinc-100"
+						>
+							<Home className="w-6 h-6 " />
+						</Link> :
+						null
+					}
 				</div>
 			</div>
 		</header>

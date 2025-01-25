@@ -28,6 +28,7 @@ export default function Button({
     <Link
       href={href}
       target="_blank"
+      download={`Katalin Groe CV.pdf`}
     >
       {button}
     </Link>
