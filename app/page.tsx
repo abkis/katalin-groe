@@ -31,7 +31,7 @@ export default function Home() {
     <div className="flex items-center justify-center w-screen h-screen bg-pink-500 overflow-hidden">
       <Particles className="absolute inset-0 -z-10" quantity={100} />
       <nav className="absolute top-8">
-        <ul className="flex items-center justify-center gap-4">
+        <ul className="flex items-center justify-center gap-4" key={0}>
           {navigation.map((item) => (
             <Link
               key={item.href}
@@ -45,7 +45,7 @@ export default function Home() {
       </nav>
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-12 p-8 max-w-6xl">
         {/* Left Column */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center items-center">
           <h1 className="text-xl font-light tracking-wider text-gray-700 mb-3">Hi! I&apos;m</h1>
           <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-4 flex items-end">
             Katalin Groe
@@ -66,9 +66,10 @@ export default function Home() {
           <p className="text-gray-800 text-lg mb-6">
             I&apos;m currently a Research Assistant 2 at CAMH. I&apos;m interested in everything!
           </p>
+          
           <Button
             href="/files/Katalin Groe CV.pdf"
-            className="md:text-lg group"
+            className="md:text-lg group "
           >
             Resume
             <RiDownloadLine className="transition-transform group-hover:translate-y-1" />

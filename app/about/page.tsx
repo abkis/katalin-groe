@@ -65,7 +65,7 @@ export default function About() {
                 className="w-[70%] h-px bg-zinc-800 opacity-80"
                 style={{ marginBottom: "5px", marginLeft: "auto", marginRight: "auto" }}
                 />
-        <ul className="grid lg:grid-cols-2 grid-cols-1 gap-2 text-lg">
+        <ul className="grid lg:grid-cols-2 grid-cols-1 gap-2 text-lg" key={"rendered interests"}>
         {renderedInterests}
         </ul>
         </div>

@@ -78,7 +78,7 @@ const components = {
 		/>
 	),
 	ul: ({ className, ...props }) => (
-		<ul className={clsx("my-6 ml-6 list-disc", className)} {...props} />
+		<ul className={clsx("my-6 ml-6 list-disc", className)}  {...props} />
 	),
 	ol: ({ className, ...props }) => (
 		<ol className={clsx("my-6 ml-6 list-decimal", className)} {...props} />

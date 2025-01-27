@@ -18,3 +18,12 @@ export type LinkDescr = {
     name: "string",
     link: "string"
 }
+
+export type Research = {
+    date: string,
+    title: string,
+    abstract: string,
+    citation: string,
+    file: string,
+    link?: string
+}
