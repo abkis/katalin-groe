@@ -9,6 +9,7 @@ import {modes, useTheme} from "./theme";
 export const nav = [
     { name: "About", href: "/about" },
     {name: "Research", href: "/research"},
+	{name: "Experience", href:"/experience"},
     { name: "Contact", href: "/contact" }
 ];
 

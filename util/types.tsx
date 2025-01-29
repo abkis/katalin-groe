@@ -27,3 +27,13 @@ export type Research = {
     file: string,
     link?: string
 }
+
+export type TimelineElement = {
+    dates: string
+    title: string
+    subtitle: string
+    description: string
+    imageSrc: string
+    gpa?: number
+    link?: string
+  }

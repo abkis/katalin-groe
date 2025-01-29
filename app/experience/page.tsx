@@ -1,16 +1,17 @@
 import React from "react";
 import { Redis } from "@upstash/redis";
-import { Research } from "../../util/types";
+import { TimelineElement } from "../../util/types";
 import "../../global.css";
 import ProjectCard from '../components/ui/project-card';
+import Timeline from "../components/ui/timeline";
 
 const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
-    const keys = ["research"];
+    const keys = ["experience"];
 
-    let research: Research[] = [];
+    let experiences: TimelineElement[] = [];
         
     const res = await redis.mget<string[]>(...keys);
 
@@ -20,31 +21,19 @@ export default async function ProjectsPage() {
           typeof project === "string" ? JSON.parse(project) : project
         );
 
-    research = proj_res[0];
-
-    const renderedProjects = research.map((project, i) => {
-      return (
-        <div key={project.title}>
-          <li>
-            <ProjectCard project={project} />
-          </li>
-        </div>
-      )
-    })
+    experiences = proj_res[0];
   
     return (
       <div className="relative pb-16" >
       <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32" style={{paddingTop: "25rem"}}>
         <div className="lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)"}}>
-          My Research
+          My Experiences
           </h1>
           <div className="w-[70%] h-px bg-zinc-800 opacity-80"
               style={{ marginBottom: "5px", marginLeft: "auto", 
                 marginRight: "auto" }}/>
-        <ul className="grid md:grid-cols-2 grid-cols-1 gap-4 md:auto-rows-fr" key={"projects page"}>
-          {renderedProjects}
-        </ul>
+        <Timeline data={experiences} />
       </div>
       </div>
       </div>

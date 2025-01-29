@@ -1,16 +1,23 @@
-import { Document, Page, pdfjs } from "react-pdf";
+import React from 'react';
 
-// Set the worker source
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+interface PDFPreviewProps {
+  src: string; // Path to the PDF file
+  width?: string | number; // Optional width
+  height?: string | number; // Optional height
+}
 
-const PdfPreview = ({ file }: { file: string }) => {
-    return (
-        <div>
-            <Document file={file}>
-                <Page pageNumber={1} />
-            </Document>
-        </div>
-    );
+const PDFPreview: React.FC<PDFPreviewProps> = ({ src, width = '100%', height = '600px' }) => {
+  return (
+    <iframe
+      src={src}
+      width={width}
+      height={height}
+      style={{
+        border: 'none',
+      }}
+      title="PDF Preview"
+    />
+  );
 };
 
-export default PdfPreview;
+export default PDFPreview;
