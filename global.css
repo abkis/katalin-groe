@@ -48,6 +48,11 @@
     color: var(--link-hover-color);
     text-decoration: underline;
   }
+
+  .h2-color {
+    color: var(--h2-color, #a339b3);
+  }
+  
   
 }
 

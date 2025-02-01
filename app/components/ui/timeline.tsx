@@ -30,7 +30,7 @@ export default function Timeline({ data }: TimelineProps) {
               const componentContent = (
                 <Fragment>
                   <h3 className="text-gray-400 mb-4">{dates}</h3>
-                  <h2 className="font-semibold text-lg">{title}</h2>
+                  <h2 className="font-semibold text-lg h2-color">{title}</h2>
                   {link ? (
                     <Link
                       href={link}

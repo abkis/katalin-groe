@@ -13,6 +13,7 @@ type Theme = {
   link: string;
   linkHover: string;
   iconColor: string;
+  h2Color: string;
 };
 
 // themes supported by app
@@ -26,7 +27,8 @@ export const modes : Theme[] = [
     subHover: "white",
     link: "#5A2A83",
     linkHover: "#8626a6",
-    iconColor: "#472563"
+    iconColor: "#472563",
+    h2Color: "#b24ec1"
   },
 {
   name: "blue",
@@ -37,7 +39,8 @@ export const modes : Theme[] = [
   subHover: "white",
   link: "#00FFFF",
   linkHover: "#469999",
-  iconColor: "#00FFFF"
+  iconColor: "#00FFFF",
+  h2Color: "#39a8b3"
 },
   {
     name: "sunset",
@@ -48,7 +51,8 @@ export const modes : Theme[] = [
     subHover: "white",
     link: "#568203",
     linkHover: "#6aeb2f",
-    iconColor: "#3c7d10"
+    iconColor: "#3c7d10",
+    h2Color: "#40b547"
   }
 ];
 
@@ -68,6 +72,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.documentElement.style.setProperty('--link-color', theme.link);
     document.documentElement.style.setProperty('--link-hover-color', theme.linkHover);
     document.documentElement.style.setProperty('--icon-color', theme.iconColor);
+    document.documentElement.style.setProperty('--h2-color', theme.h2Color);
 
   }, [theme]);
 
