@@ -45,7 +45,7 @@ export default function About() {
           <br/>
           I received my Bachelor of Science degree in Psychology and Health Sciences 
           from the University of Toronto, and am passionate about advancing our understanding 
-          of mental health disorders in order to support clinical outcomes. You can download my resume&nbsp; 
+          of mental health disorders in order to support clinical outcomes. You can download my CV&nbsp; 
           <a
             href="../public/Katalin Groe Resume.pdf"
             download="Katalin Groe Resume.pdf"
