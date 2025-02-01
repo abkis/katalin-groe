@@ -71,7 +71,7 @@ export default function Home() {
             href="/files/Katalin Groe CV.pdf"
             className="md:text-lg group "
           >
-            Resume
+            CV
             <RiDownloadLine className="transition-transform group-hover:translate-y-1" />
           </Button>
         </div>

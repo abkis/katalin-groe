@@ -10,7 +10,28 @@ export default function ProjectCard({ project }: ProjectProps) {
   return (
     <Card>
     <div className="rounded-lg bg-slate-700 flex flex-col min-h-full flex-grow relative">
-      <a 
+      {
+        file && file !== "" ? 
+        (
+          <div className="p-4 flex-col flex flex-grow">
+        <div className="flex lg:flex-row flex-col justify-between lg:items-center gap-2 mb-6">
+          {link ? (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:var(--link-hover-color)"
+            >
+              <h2 className="text-2xl font-semibold text-white">{title}</h2>
+            </a>
+          ) : (
+            <h2 className="text-2xl font-semibold text-white">{title}</h2>
+          )}
+        </div>
+        <p className="text-gray-400 font-medium mb-2">{abstract}</p>
+      </div>
+        ) :
+        <a 
         href={file}
         download={file}
         >
@@ -32,6 +53,7 @@ export default function ProjectCard({ project }: ProjectProps) {
         <p className="text-gray-400 font-medium mb-2">{abstract}</p>
       </div>
       </a>
+      } 
     </div>
     </Card>
   );
